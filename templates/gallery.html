@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picsplit</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/gallery.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+<body>
+    
+
+<div class="cards-list"  style="display:flex; flex-direction:row; flex-wrap: wrap;"> 
+{%for i in image_files %}
+<div class="card 1" style="margin:30px;">
+  <div class="card_image"> <img src="{{url_for('static',filename=i)}}"/> </div>
+  <!-- <div class="hide">
+    <form method = "POST" action = "/button_clicked">
+    <button class="btn" style="margin-left:20px; margin-right:20px; margin-top:10px;" id = "share-button"><i class="bi bi-share-fill" ></i>
+    </button></form>
+    <button class="btn" style="margin-left:20px; margin-right:20px; margin-top:10px;"><i class="bi bi-download"></i></button>
+</div> -->
+</div>
+{% endfor %}
+</div>
+
+  
+  
+    
+    <!-- <div class="card 1" style="margin:30px;">
+        <div class="card_image"> <img src="assets/images/grp-1.jpg" /> </div>
+        <div class="card_title title-white">
+      
+        </div>
+      </div>
+      <div class="card 1" style="margin:30px;">
+        <div class="card_image"> <img src="assets/images/grp-1.jpg" /> </div>
+        <div class="card_title title-white">
+      
+        </div>
+      </div>
+      <div class="card 1" style="margin:30px;">
+        <div class="card_image"> <img src="assets/images/grp-1.jpg" /> </div>
+        <div class="card_title title-white">
+      
+        </div>
+      </div>
+      <div class="card 1" style="margin:30px;">
+        <div class="card_image"> <img src="assets/images/grp-1.jpg" /> </div>
+        <div class="card_title title-white">
+      
+        </div>
+      </div>
+      <div class="card 1" style="margin:30px;">
+        <div class="card_image"> <img src="assets/images/grp-1.jpg" /> </div>
+        <div class="card_title title-white">
+      
+        </div>
+      </div>
+   
+              
+   
+    </div> -->
+
+    
+</body>
+<script>
+		$(document).ready(function() {
+			$("#share-button").click(function() {
+				$.ajax({
+					type: "POST",
+					url: "/button_clicked",
+					success: function(response) {
+						console.log(response);
+					},
+					error: function(xhr, status, error) {
+						console.log("Error:", error);
+					}
+				});
+			});
+		});
+	</script>
+</html>
